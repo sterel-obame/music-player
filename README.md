@@ -7,11 +7,11 @@
 
 ## 🎨 Aperçu visuel
 
+|----------------------------------------|--------------------------------------|------------------------------------|
 | ![](assets/images/favorites-green.jpg) | ![](assets/images/favorites-red.jpg) | ![](assets/images/video-green.gif) |
-|----------------------------------------|--------------------------------------|-------------------------------------|
-| ![](assets/images/playlist-green.jpg)  | ![](assets/images/playlist-red.jpg) | ![](assets/images/video-red.gif)   |
-| ![](assets/images/music-green.jpg)     |                                      |                                     |
-| ![](assets/images/artist-green.jpg)    | ![](assets/artist-red.jpg)           |                                     |
+| ![](assets/images/playlist-green.jpg)  | ![](assets/images/playlist-red.jpg)  | ![](assets/images/video-red.gif)   |
+| ![](assets/images/music-green.jpg)     | ![](assets/images/music-red.jpeg)    |                                    |
+| ![](assets/images/artist-green.jpg)    | ![](assets/images/artist-red.jpg)    |                                    |
 
 
 ---

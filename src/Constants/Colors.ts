@@ -8,7 +8,7 @@ const Colors = {
       warning: '#ffcc00',
     },
     android: {
-      primary: '#1DB954',
+      primary: '#ff014f',
       secondary: '#9C27B0',
       success: '#4caf50',
       error: '#f44336',
