@@ -6,6 +6,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { MusicStackParamList } from '../types/navigationTypes'; // Assure-toi que ce fichier contient bien MusicStack types
 import { MusicItem } from 'src/types';
 import Colors from 'src/Constants/Colors';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 
 type NavigationProp = StackNavigationProp<MusicStackParamList, 'MusicList'>;
@@ -68,14 +70,14 @@ const Music = () => {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <FlatList
                 data={tracks}
                 keyExtractor={(item) => item.id}
                 renderItem={renderItem}
                 ListEmptyComponent={<Text style={styles.empty}>Aucune musique trouvée.</Text>}
             />
-        </View>
+        </SafeAreaView>
     );
 };
 

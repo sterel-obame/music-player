@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { getFavorites } from 'services/favorites';
 import { appEvents } from 'utils/events';
 import { AudioTrack } from 'src/types';
 import { audioPlayer } from 'context/audioPlayer';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Favorites = () => {
     const navigation = useNavigation<any>();
@@ -33,7 +34,7 @@ const Favorites = () => {
     };
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <FlatList
                 data={favorites}
                 keyExtractor={(item) => item.id}
@@ -44,7 +45,7 @@ const Favorites = () => {
                     </TouchableOpacity>
                 )}
             />
-        </View>
+        </SafeAreaView>
     );
 };
 

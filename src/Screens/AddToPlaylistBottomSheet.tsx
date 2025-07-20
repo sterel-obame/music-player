@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform} from 'react-native';
+import { Text, FlatList, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform} from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import * as MediaLibrary from 'expo-media-library';
 import { getPlaylists, savePlaylists } from '../services/playlists';
 import { appEvents } from 'utils/events';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Colors from 'src/Constants/Colors';
 
 const AddToPlaylistBottomSheet = () => {

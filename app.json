@@ -4,7 +4,7 @@
     "slug": "music-player",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/musice.png",
+    "icon": "./assets/logo1.webp",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -16,13 +16,20 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.sterelobame.musicplayer",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/musice.png",
+        "foregroundImage": "./assets/logo1.webp",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
       "permissions": [
-        "android.permission.FOREGROUND_SERVICE"
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_MEDIA_LOCATION"
       ]
     },
     "web": {
@@ -52,6 +59,11 @@
           "faceIDPermission": "Allow $(PRODUCT_NAME) to access your Face ID biometric data."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "b1cabcbd-b2ec-4d46-bb7b-dfd595e8fb02"
+      }
+    }
   }
 }

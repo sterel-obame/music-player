@@ -4,7 +4,6 @@ import {
     Image,
     StyleProp,
     ViewStyle,
-    StyleSheet,
     Easing, // ✅ CORRECT import
 } from 'react-native';
 

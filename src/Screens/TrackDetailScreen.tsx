@@ -1,7 +1,6 @@
-import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Modal, FlatList, Pressable, Dimensions, Platform } from 'react-native';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Modal, FlatList, Pressable, Dimensions, Platform } from 'react-native';
 import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
-import { AVPlaybackStatusSuccess } from 'expo-av';
 import Slider from '@react-native-community/slider';
 import { Ionicons } from '@expo/vector-icons';
 import { isTrackFavorite, toggleFavorite } from 'services/favorites';
@@ -190,18 +189,6 @@ const TrackDetailScreen = () => {
         setIndex(prevIndex);
     };
 
-
-    const cycleRepeatMode = () => {
-        const next = repeatMode === 'off' ? 'all' : repeatMode === 'all' ? 'one' : 'off';
-        setRepeatMode(next);
-        if (soundRef.current) {
-        soundRef.current.setIsLoopingAsync(next === 'one');
-        }
-    };
-
-    const toggleShuffle = () => {
-        setIsShuffle(!isShuffle);
-    };
 
     const formatTime = (ms: number) => {
         const minutes = Math.floor(ms / 60000);

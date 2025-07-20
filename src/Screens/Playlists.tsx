@@ -84,7 +84,8 @@ const Playlists = () => {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1, backgroundColor: '#121212' }}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={80}
     >
       <FlatList
         data={playlists}

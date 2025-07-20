@@ -1,8 +1,7 @@
 import React, { useMemo, useRef } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, Platform} from 'react-native';
-import BottomSheet, { BottomSheetFlashList, BottomSheetFlatList, BottomSheetView } from '@gorhom/bottom-sheet';
+import { View, Text, StyleSheet, TouchableOpacity, Platform} from 'react-native';
+import BottomSheet, { BottomSheetFlatList} from '@gorhom/bottom-sheet';
 import { useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
 import Colors from 'src/Constants/Colors';
 
 const QueueBottomSheet = ({ playlist, currentIndex, onClose }: {

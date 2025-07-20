@@ -13,11 +13,14 @@ import PlaylistDetailScreen from 'Screens/PlaylistDetailScreen';
 import AddToPlaylistBottomSheet from 'Screens/AddToPlaylistBottomSheet';
 import Colors from 'src/Constants/Colors';
 import { Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 
 
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 const BottomTabNavigator = () => {
+    const insets = useSafeAreaInsets();
     const [fontsLoaded] = useFonts({
         'Roboto-Regular': require('../../assets/fonts/Montserrat-Regular.ttf'),
         'Roboto-Bold': require('../../assets/fonts/Montserrat-Bold.ttf'),
@@ -26,7 +29,6 @@ const BottomTabNavigator = () => {
     if (!fontsLoaded) {
         return null;
     }
-
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -50,8 +52,9 @@ const BottomTabNavigator = () => {
                 tabBarStyle: {
                     backgroundColor: '#121212',
                     borderTopWidth: 0,
-                    paddingBottom: 5,
-                    height: 60,
+                    paddingTop: 5,
+                    paddingBottom: insets.bottom > 0 ? insets.bottom : 10,
+                    height: 60 + insets.bottom, // ← important
                 },
                 tabBarLabelStyle: {
                     fontSize: 12,
@@ -61,30 +64,30 @@ const BottomTabNavigator = () => {
                 headerShown: false,
             })}
         >
-        <Tab.Screen name="favorites" component={FavoritesStackScreen} />
+            <Tab.Screen name="favorites" component={FavoritesStackScreen} />
 
-        <Tab.Screen name="playlists" component={PlaylistStackScreen} />
+            <Tab.Screen name="playlists" component={PlaylistStackScreen} />
 
-        <Tab.Screen name="music" component={MusicStackScreen} />
+            <Tab.Screen name="music" component={MusicStackScreen} />
 
-        <Tab.Screen 
-            name="artist" 
-            component={Artist}
-            options={({ navigation }) => ({
-                headerShown: true,
-                headerTitle: 'Artist',
-                headerTintColor: Platform.OS === 'android'? Colors.platform.android.primary : Colors.platform.ios.primary,
-                headerLeft: () => (
-                    <Ionicons 
-                        name="chevron-back-circle" 
-                        size={34} 
-                        color={Platform.OS === 'android'? Colors.platform.android.primary : Colors.platform.ios.primary} 
-                        style={{ marginHorizontal: 15 }}
-                        onPress={() => navigation.goBack()}
-                    />
-                ),
-            })}
-        />
+            <Tab.Screen 
+                name="artist" 
+                component={Artist}
+                options={({ navigation }) => ({
+                    headerShown: true,
+                    headerTitle: 'Artist',
+                    headerTintColor: Platform.OS === 'android'? Colors.platform.android.primary : Colors.platform.ios.primary,
+                    headerLeft: () => (
+                        <Ionicons 
+                            name="chevron-back-circle" 
+                            size={34} 
+                            color={Platform.OS === 'android'? Colors.platform.android.primary : Colors.platform.ios.primary} 
+                            style={{ marginHorizontal: 15 }}
+                            onPress={() => navigation.goBack()}
+                        />
+                    ),
+                })}
+            />
         </Tab.Navigator>
     );
 };
@@ -128,7 +131,7 @@ const MusicStackScreen = () => (
                     />
                 ),
             })}
-        />{/*c'est le lecteur en cours */}
+        />
     </MusicStack.Navigator>
 );
 
